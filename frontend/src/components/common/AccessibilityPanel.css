@@ -1,0 +1,501 @@
+.accessibility-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 2000;
+  backdrop-filter: blur(4px);
+}
+
+.accessibility-panel {
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+  width: 90%;
+  max-width: 600px;
+  max-height: 80vh;
+  overflow: hidden;
+  animation: slideUp 0.3s ease-out;
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.accessibility-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.5rem;
+  border-bottom: 1px solid #e2e8f0;
+  background: #f8f9fa;
+}
+
+.accessibility-header h2 {
+  margin: 0;
+  color: #2d3748;
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+.close-btn {
+  background: transparent;
+  border: none;
+  color: #718096;
+  font-size: 1.25rem;
+  cursor: pointer;
+  padding: 0.5rem;
+  border-radius: 50%;
+  transition: all 0.3s ease;
+}
+
+.close-btn:hover {
+  background: #e2e8f0;
+  color: #4a5568;
+}
+
+.accessibility-tabs {
+  display: flex;
+  border-bottom: 1px solid #e2e8f0;
+  background: white;
+}
+
+.tab {
+  flex: 1;
+  padding: 1rem;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: #718096;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.tab:hover {
+  color: #4a5568;
+  background: #f7fafc;
+}
+
+.tab.active {
+  color: #3182ce;
+  background: #ebf8ff;
+  border-bottom: 2px solid #3182ce;
+}
+
+.tab i {
+  font-size: 1rem;
+}
+
+.accessibility-content {
+  padding: 2rem;
+  max-height: 400px;
+  overflow-y: auto;
+}
+
+.setting-group {
+  margin-bottom: 2rem;
+}
+
+.setting-group:last-child {
+  margin-bottom: 0;
+}
+
+.setting-group h3 {
+  color: #2d3748;
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+
+/* Font Size Controls */
+.font-size-controls {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.font-size-btn {
+  padding: 0.75rem 1rem;
+  border: 2px solid #e2e8f0;
+  border-radius: 8px;
+  background: white;
+  color: #4a5568;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-weight: 600;
+  min-width: 60px;
+}
+
+.font-size-btn:hover {
+  border-color: #3182ce;
+  color: #3182ce;
+}
+
+.font-size-btn.active {
+  border-color: #3182ce;
+  background: #3182ce;
+  color: white;
+}
+
+/* Toggle Controls */
+.toggle-control {
+  margin-bottom: 1rem;
+}
+
+.toggle-label {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  cursor: pointer;
+  margin-bottom: 0.5rem;
+}
+
+.toggle-input {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.toggle-slider {
+  position: relative;
+  width: 50px;
+  height: 24px;
+  background: #cbd5e0;
+  border-radius: 12px;
+  transition: all 0.3s ease;
+}
+
+.toggle-slider:before {
+  content: '';
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  width: 20px;
+  height: 20px;
+  background: white;
+  border-radius: 50%;
+  transition: all 0.3s ease;
+}
+
+.toggle-input:checked + .toggle-slider {
+  background: #3182ce;
+}
+
+.toggle-input:checked + .toggle-slider:before {
+  transform: translateX(26px);
+}
+
+.toggle-text {
+  font-weight: 500;
+  color: #2d3748;
+}
+
+.setting-description {
+  color: #718096;
+  font-size: 0.9rem;
+  margin: 0;
+  line-height: 1.5;
+}
+
+/* Keyboard Shortcuts */
+.shortcuts-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.shortcut-item {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.75rem;
+  background: #f7fafc;
+  border-radius: 6px;
+}
+
+.shortcut-item kbd {
+  background: #2d3748;
+  color: white;
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  font-family: monospace;
+  min-width: 40px;
+  text-align: center;
+}
+
+.shortcut-item span {
+  color: #4a5568;
+  font-size: 0.9rem;
+}
+
+/* Screen Reader Info */
+.sr-info p {
+  color: #4a5568;
+  margin-bottom: 1rem;
+  line-height: 1.6;
+}
+
+.sr-features {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.sr-features li {
+  color: #4a5568;
+  padding: 0.5rem 0;
+  border-bottom: 1px solid #e2e8f0;
+  position: relative;
+  padding-left: 1.5rem;
+}
+
+.sr-features li:before {
+  content: '✓';
+  position: absolute;
+  left: 0;
+  color: #38a169;
+  font-weight: bold;
+}
+
+.sr-features li:last-child {
+  border-bottom: none;
+}
+
+.accessibility-footer {
+  padding: 1.5rem;
+  border-top: 1px solid #e2e8f0;
+  background: #f8f9fa;
+  display: flex;
+  justify-content: center;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  font-size: 0.9rem;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  text-decoration: none;
+}
+
+.btn-secondary {
+  background: #718096;
+  color: white;
+}
+
+.btn-secondary:hover {
+  background: #4a5568;
+  transform: translateY(-1px);
+}
+
+/* Screen Reader Only */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .accessibility-panel {
+    width: 95%;
+    max-height: 90vh;
+  }
+  
+  .accessibility-header {
+    padding: 1rem;
+  }
+  
+  .accessibility-header h2 {
+    font-size: 1.25rem;
+  }
+  
+  .accessibility-content {
+    padding: 1rem;
+  }
+  
+  .font-size-controls {
+    justify-content: center;
+  }
+  
+  .shortcuts-list {
+    gap: 0.5rem;
+  }
+  
+  .shortcut-item {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+}
+
+/* Dark Mode Support */
+@media (prefers-color-scheme: dark) {
+  .accessibility-panel {
+    background: #2d3748;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+  }
+  
+  .accessibility-header {
+    background: #1a202c;
+    border-bottom-color: #4a5568;
+  }
+  
+  .accessibility-header h2 {
+    color: #e2e8f0;
+  }
+  
+  .close-btn {
+    color: #a0aec0;
+  }
+  
+  .close-btn:hover {
+    background: #4a5568;
+    color: #e2e8f0;
+  }
+  
+  .accessibility-tabs {
+    background: #2d3748;
+    border-bottom-color: #4a5568;
+  }
+  
+  .tab {
+    color: #a0aec0;
+  }
+  
+  .tab:hover {
+    color: #e2e8f0;
+    background: #1a202c;
+  }
+  
+  .tab.active {
+    color: #3182ce;
+    background: #1a365d;
+    border-bottom-color: #3182ce;
+  }
+  
+  .setting-group h3 {
+    color: #e2e8f0;
+  }
+  
+  .font-size-btn {
+    background: #2d3748;
+    border-color: #4a5568;
+    color: #a0aec0;
+  }
+  
+  .font-size-btn:hover {
+    border-color: #3182ce;
+    color: #3182ce;
+  }
+  
+  .font-size-btn.active {
+    border-color: #3182ce;
+    background: #3182ce;
+    color: white;
+  }
+  
+  .toggle-text {
+    color: #e2e8f0;
+  }
+  
+  .setting-description {
+    color: #a0aec0;
+  }
+  
+  .shortcut-item {
+    background: #1a202c;
+  }
+  
+  .shortcut-item span {
+    color: #a0aec0;
+  }
+  
+  .sr-info p {
+    color: #a0aec0;
+  }
+  
+  .sr-features li {
+    color: #a0aec0;
+    border-bottom-color: #4a5568;
+  }
+  
+  .accessibility-footer {
+    background: #1a202c;
+    border-top-color: #4a5568;
+  }
+}
+
+/* High Contrast Mode */
+.high-contrast {
+  --hc-text: #000000;
+  --hc-bg: #ffffff;
+  --hc-border: #000000;
+  --hc-focus: #0000ff;
+}
+
+.high-contrast * {
+  color: var(--hc-text) !important;
+  background-color: var(--hc-bg) !important;
+  border-color: var(--hc-border) !important;
+}
+
+.high-contrast *:focus {
+  outline: 3px solid var(--hc-focus) !important;
+  outline-offset: 2px !important;
+}
+
+/* Reduced Motion */
+.reduced-motion * {
+  animation-duration: 0.01ms !important;
+  animation-iteration-count: 1 !important;
+  transition-duration: 0.01ms !important;
+}
+
+/* Font Size Classes */
+[data-font-size="small"] {
+  font-size: 0.875rem;
+}
+
+[data-font-size="medium"] {
+  font-size: 1rem;
+}
+
+[data-font-size="large"] {
+  font-size: 1.125rem;
+}
+
+[data-font-size="xlarge"] {
+  font-size: 1.25rem;
+} 
