@@ -2,7 +2,8 @@
 
 A comprehensive educational platform for skill development, job matching, and professional growth in Nigeria. Built with React.js, Node.js, and MongoDB.
 
-# LearnBase Pitch Deck Link - https://drive.google.com/file/d/1qlyaiY0yjbESv0G2Z2ITplNCXTmMSbDG/view?usp=drive_link
+# LearnBase Pitch Deck Link 
+https://drive.google.com/file/d/1qlyaiY0yjbESv0G2Z2ITplNCXTmMSbDG/view?usp=drive_link
 
 ## 🚀 Features
 
